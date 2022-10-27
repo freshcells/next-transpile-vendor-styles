@@ -1,6 +1,7 @@
 {
   "name": "@freshcells/next-transpile-vendor-styles",
   "type": "module",
+  "version": "1.0.0",
   "dependencies": {
     "enhanced-resolve": "^5.10.0"
   },
