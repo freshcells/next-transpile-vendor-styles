@@ -13,6 +13,9 @@
   ],
   "module": "src/index.mjs",
   "packageManager": "yarn@3.2.4",
+  "publishConfig": {
+    "access": "public"
+  },
   "release": {
     "branches": [
       "main"
