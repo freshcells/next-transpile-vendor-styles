@@ -2,17 +2,25 @@
   "name": "@freshcells/next-transpile-vendor-styles",
   "type": "module",
   "version": "1.0.0",
-  "author":  "David Heidrich <david.heidrich@freshcells.de>",
+  "author": "David Heidrich <david.heidrich@freshcells.de>",
   "dependencies": {
     "enhanced-resolve": "^5.10.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
     "semantic-release": "^19.0.5"
   },
   "files": [
-    "src/index.mjs"
+    "src",
+    "dist"
   ],
-  "main": "src/index.mjs",
+  "scripts": {
+   "prepack": "babel src --out-dir dist --out-file-extension .cjs"
+  },
+  "module": "src/index.mjs",
+  "main": "dist/index.cjs",
   "packageManager": "yarn@3.2.4",
   "publishConfig": {
     "access": "public"
