@@ -21,6 +21,12 @@
   },
   "module": "src/index.mjs",
   "main": "dist/index.cjs",
+  "exports": {
+    ".": {
+      "import": "./src/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "packageManager": "yarn@3.2.4",
   "publishConfig": {
     "access": "public"
