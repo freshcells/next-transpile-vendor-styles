@@ -187,11 +187,14 @@ const withTmInitializer = (modules = [], options = {}) => {
           )
 
           if (nextCssLoader) {
-            nextCssLoader.issuer.or = nextCssLoader.issuer.and
-              ? nextCssLoader.issuer.and.concat(matcher)
-              : matcher
-            delete nextCssLoader.issuer.not
-            delete nextCssLoader.issuer.and
+            // next.js 13 has no issuer defined
+            if (nextCssLoader.issuer) {
+              nextCssLoader.issuer.or = nextCssLoader.issuer.and
+                  ? nextCssLoader.issuer.and.concat(matcher)
+                  : matcher
+              delete nextCssLoader.issuer.not
+              delete nextCssLoader.issuer.and
+            }
           } else {
             console.warn(
               'sass-only-transpile - could not find default CSS rule, CSS imports may not work'
@@ -199,11 +202,14 @@ const withTmInitializer = (modules = [], options = {}) => {
           }
 
           if (nextSassLoader) {
-            nextSassLoader.issuer.or = nextSassLoader.issuer.and
-              ? nextSassLoader.issuer.and.concat(matcher)
-              : matcher
-            delete nextSassLoader.issuer.not
-            delete nextSassLoader.issuer.and
+            // next.js 13 has no issuer defined
+            if (nextSassLoader.issuer) {
+              nextSassLoader.issuer.or = nextSassLoader.issuer.and
+                  ? nextSassLoader.issuer.and.concat(matcher)
+                  : matcher
+              delete nextSassLoader.issuer.not
+              delete nextSassLoader.issuer.and
+            }
           } else {
             console.warn(
               'next-transpile-vendor-styles - could not find default SASS rule, SASS imports may not work'
